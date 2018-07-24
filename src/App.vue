@@ -13,11 +13,14 @@
 
 <script>
 import Blog from './components/Blog.vue'
+import Administration from './components/Administration.vue'
+
 
 export default {
   name: 'app',
   components: {
-    Blog
+    Blog,
+    Administration
     
   }
 }

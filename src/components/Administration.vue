@@ -10,15 +10,7 @@
     <single-post v-bind:key="post.title" v-for="post in allBlogPosts" :title="post.title" :category="post.category" :author="post.author"></single-post>
     
 </table>
-    <!-- <form action="/localhost:3001" method="POST"> -->
-        <input name="title" v-model="newTitle" type="text">
-        <input name="category" v-model="newCategory" type="text">
-        <input name="author" v-model="newAuthor" type="text">
-        <p>Title:  {{newTitle}}</p>
-        <p>Category:  {{newCategory}}</p>
-        <p>Author:  {{newAuthor}}</p>
-        <button @click="addPost">Send</button>
-    <!-- </form> -->
+
   </div>
 </template>
 
@@ -34,7 +26,12 @@ export default {
   },
     data() {
         return {
-            allBlogPosts:[],
+            allBlogPosts:[
+                {title: "Some title", category: "Some category", author:"Some author"},
+                {title: "Some title2", category: "Some category2", author:"Some author2"},
+                {title: "Some title3", category: "Some category3", author:"Some author3"}
+
+            ],
             newTitle: "",
             newCategory: "",
             newAuthor: "",
@@ -47,9 +44,6 @@ export default {
             this.socket.emit('addPost', {
                 title: this.newTitle, category: this.newCategory, author: this.newAuthor
             });
-            this.newTitle= "";
-            this.newCategory= "";
-            this.newAuthor= "";
             console.log("addpost se desio")
         },
     },
